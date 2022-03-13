@@ -5,15 +5,15 @@ export const useForm = ( initialState = {} ) => {
     const [values, setValues] = useState( initialState );
 
     const reset = ( ) => {
-        setValues( initialState )
+        setValues( initialState );
     }
     
     const handleInputChange = ({ target }) => {
         setValues({
-            ...values,
-            [ target.name ]: target.value  // Computando
+            ...values,  // copia el estado actual
+            [ target.name ]: target.value  // target.name es el nombre del input 
         });
     };
 
-    return [ values, handleInputChange, reset ]
+    return [ values, handleInputChange, reset ];  // retorna un array con los valores y los metodos
 }
